@@ -1,0 +1,137 @@
+{
+  "info": {
+    "name": "Connectly API",
+    "_postman_id": "12345-connectly-api",
+    "description": "Postman collection for testing Connectly social media API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+
+    {
+      "name": "Users - Get All",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/users",
+          "host": ["{{base_url}}"],
+          "path": ["api", "users"]
+        }
+      }
+    },
+
+    {
+      "name": "Users - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"john\",\n  \"email\": \"john@example.com\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/users/create",
+          "host": ["{{base_url}}"],
+          "path": ["api", "users", "create"]
+        }
+      }
+    },
+
+    {
+      "name": "Posts - Get All",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/posts",
+          "host": ["{{base_url}}"],
+          "path": ["api", "posts"]
+        }
+      }
+    },
+
+    {
+      "name": "Posts - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"Hello world\",\n  \"author\": 1\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/posts/create",
+          "host": ["{{base_url}}"],
+          "path": ["api", "posts", "create"]
+        }
+      }
+    },
+
+    {
+      "name": "Follow User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"follower\": 1,\n  \"following\": 2\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/follow",
+          "host": ["{{base_url}}"],
+          "path": ["api", "follow"]
+        }
+      }
+    },
+
+    {
+      "name": "Like Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user\": 1,\n  \"post\": 1\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/like",
+          "host": ["{{base_url}}"],
+          "path": ["api", "like"]
+        }
+      }
+    },
+
+    {
+      "name": "Comment on Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user\": 1,\n  \"post\": 1,\n  \"text\": \"Nice post!\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/comment",
+          "host": ["{{base_url}}"],
+          "path": ["api", "comment"]
+        }
+      }
+    }
+
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    }
+  ]
+}
